@@ -31,7 +31,7 @@ foreach my $file (@input)
 	    my $key = join("-|-", ($fields[0], $fields[5], $i));
 	    if ((exists $overlapper{$key}) && ($overlapper{$key} & $count))
 	    {
-		print STDERR "Bit already set for line '$_'\n";
+		print STDERR "Bit already set for key: '$key' in line '$_'\n";
 	    }
 	    $overlapper{$key} |= $count;
 	}
