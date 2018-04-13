@@ -14,9 +14,13 @@ GetOptions(
 
 @input = split(",", (join(",", @input)));
 
+print STDERR "Working on files: ", join(",", @input), "\n";
+
 my $count = 1;
 foreach my $file (@input)
 {
+    print STDERR "Starting with '$file'\n";
+
     open(FH, "<", $file) || die "$!\n";
     while (<FH>)
     {
@@ -30,6 +34,8 @@ foreach my $file (@input)
     }
     close(FH);
     $count = $count*2;
+
+    print STDERR "Finished '$file'\n";
 }
 
 my %counts = ();
