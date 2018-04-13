@@ -12,7 +12,7 @@ GetOptions(
     'i=s@' => \@input
     );
 
-@input = split("," (join(",", @input)));
+@input = split(",", (join(",", @input)));
 
 my $count = 1;
 foreach my $file (@input)
