@@ -33,7 +33,7 @@ foreach my $file (@input)
 	    {
 		print STDERR "Bit already set for line '$_'\n";
 	    }
-	    $overlapper{$key} = $overlapper{$key} | $count;
+	    $overlapper{$key} |= $count;
 	}
     }
     close(FH);
