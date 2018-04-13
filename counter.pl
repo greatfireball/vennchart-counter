@@ -28,8 +28,8 @@ foreach my $file (@input)
 	my @fields = split("\t", $_);
 	for (my $i=$fields[1]; $i<$fields[2]; $i++)
 	{
-	    my $key = join("-|-", ($fields[0], $i));
-	    $overlapper{$key}+=$count;
+	    my $key = join("-|-", ($fields[0], $fields[5], $i));
+	    $overlapper{$key} = $overlapper{$key} | $count;
 	}
     }
     close(FH);
