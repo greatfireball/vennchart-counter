@@ -29,6 +29,10 @@ foreach my $file (@input)
 	for (my $i=$fields[1]; $i<$fields[2]; $i++)
 	{
 	    my $key = join("-|-", ($fields[0], $fields[5], $i));
+	    if ((exists $overlapper{$key}) && ($overlapper{$key} & $count))
+	    {
+		print STDERR "Bit already set for line '$_'\n";
+	    }
 	    $overlapper{$key} = $overlapper{$key} | $count;
 	}
     }
