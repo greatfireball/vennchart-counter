@@ -18,12 +18,15 @@ my $count = 1;
 foreach my $file (@input)
 {
     open(FH, "<", $file) || die "$!\n";
-    chomp;
-    my @fields = split("\t", $_);
-    for (my $i=$fields[1]; $i<$fields[2]; $i++)
+    while (<FH>)
     {
-	my $key = join("-|-", ($fields[0], $i));
-	$overlapper{$key}+=$count;
+	chomp;
+	my @fields = split("\t", $_);
+	for (my $i=$fields[1]; $i<$fields[2]; $i++)
+	{
+	    my $key = join("-|-", ($fields[0], $i));
+	    $overlapper{$key}+=$count;
+	}
     }
     close(FH);
     $count = $count*2;
