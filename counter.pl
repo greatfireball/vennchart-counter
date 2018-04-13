@@ -22,7 +22,7 @@ foreach my $file (@input)
     my @fields = split("\t", $_);
     for (my $i=$fields[1]; $i<$fields[2]; $i++)
     {
-	$key = join("-|-", ($fields[0], $i));
+	my $key = join("-|-", ($fields[0], $i));
 	$overlapper{$key}+=$count;
     }
     close(FH);
